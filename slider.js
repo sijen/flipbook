@@ -14,8 +14,8 @@ function _display()
     // if currentpage is 
     if(currentpageIndex>0)
     {
-        elem[currentpageIndex].style.transform="rotateY(-125deg)"; 
-        elem[currentpageIndex-1].style.transform="rotateY(0deg)";
+        elem[currentpageIndex].style.transform="rotateY(0deg)"; 
+        elem[currentpageIndex-1].style.transform="rotateY(-125deg)";
         elem[currentpageIndex-1].style.display="block";
         if(currentpageIndex==elem.length-1)
         {
