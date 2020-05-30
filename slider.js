@@ -1,34 +1,46 @@
-var num = 0;
-var elem = document.getElementsByClassName("sliderbox");
+var currentpageIndex = 0;
+var elem = document.getElementsByClassName("pages");
+var currentpage=1;
 function _display()
 {
     for(var k=0;k<elem.length;k++)
     {
-        elem[k].style.visibility="hidden";
+        //hide all the slides
+        elem[k].style.display="none";
+        elem[k].style.transform="rotate(0deg)";
     }
-    elem[num].style.visibility="visible";
+    //display all the slides one by one
+    elem[currentpageIndex].style.display="block";    
+    // if currentpage is 
+    if(currentpageIndex>0)
+    {
+        elem[currentpageIndex].style.transform="rotateY(-125deg)"; 
+        elem[currentpageIndex-1].style.transform="rotateY(0deg)";
+        elem[currentpageIndex-1].style.display="block";
+        if(currentpageIndex==elem.length-1)
+        {
+            elem[currentpageIndex].style.transform="rotateY(0deg)";
+            elem[currentpageIndex].style.display="block";
+        }
+    }
     // setTimeout(_right,3000);
 }
 function _right()
 {
-    num++;
-    if(num>=elem.length)
+    currentpageIndex++;
+    if(currentpageIndex>=elem.length)
     {
-        num=0;
+        currentpageIndex=0;
     }
-    elem[num].style.transform="rotateY(0deg)";
-    // elem[num].style.transition = "transform 0.5s ease";
     _display();
 }
 function _left()
 {
-    num--;
-    if(num<0)
+    currentpageIndex--;
+    if(currentpageIndex<0)
     {
-        num=elem.length-1;
+        currentpageIndex=elem.length-1;
     }
-    elem[num].style.transform="rotateY(-180deg)";
-    // elem[num].style.transition = "transform 0.5s ease";
     _display();
 }
 function _textdesign()

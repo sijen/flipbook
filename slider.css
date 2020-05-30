@@ -8,6 +8,7 @@
 body
 {
     background-color: rgba(241, 142, 28, 0.774);
+    text-align: center;
 }
 #content{
     text-align: center;
@@ -17,22 +18,19 @@ body
     text-shadow: 10px 0px 0px grey;
 }
 .slider{
-   transform: translate(500px);
-    height: 500px;
-    width: 300px;
-    padding-left: 40px;
+    display: inline-block;
+    min-height: 500px;
+    min-width: 400px;
     background-color: blue;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
     position: relative;
+    box-shadow:  0px -10px 10px grey, 10px 0px 10px grey;
 }
-.sliderbox{
+.pages{
     position: absolute;
-    height: 480px;
-    width: 280px;
+    height: 100%;
+    width: 100%;
     transform-style: preserve-3d;
     transform-origin: left;
-    transform: rotateX(0deg);
     box-shadow: 1px 1px 5px grey;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.452);
