@@ -1,6 +1,6 @@
 var currentpageIndex = 0;
 var elem = document.getElementsByClassName("pages");
-var currentpage=1;
+var prevpageButton = document.getElementsByClassName("left");
 function _display()
 {
     for(var k=0;k<elem.length;k++)
@@ -9,11 +9,14 @@ function _display()
         elem[k].style.display="none";
         elem[k].style.transform="rotate(0deg)";
     }
+    //left button hidden if the page is no more to turn
+    prevpageButton[0].style.zIndex="0";
     //display all the slides one by one
     elem[currentpageIndex].style.display="block";    
-    // if currentpage is 
+    // if currentpage is displayed and previous page is rotated 
     if(currentpageIndex>0)
     {
+        prevpageButton[0].style.zIndex="1";
         elem[currentpageIndex].style.transform="rotateY(0deg)"; 
         elem[currentpageIndex-1].style.transform="rotateY(-125deg)";
         elem[currentpageIndex-1].style.display="block";
@@ -23,7 +26,7 @@ function _display()
             elem[currentpageIndex].style.display="block";
         }
     }
-    // setTimeout(_right,3000);
+    //setInterval(_right,10000);
 }
 function _right()
 {
@@ -42,35 +45,4 @@ function _left()
         currentpageIndex=elem.length-1;
     }
     _display();
-}
-function _textdesign()
-{
-    var n = 0;
-    var k = document.getElementById("content");
-    switch(n){
-        case 0 :
-            {
-                k.style.textShadow = "10px 0px 0px red";
-                n=1;
-                break;
-            }
-        case 1 :
-            {
-                k.style.textShadow = "10px 0px 0px blue";
-                n=2;
-                break;
-            }
-        case 2 :
-            {
-                k.style.textShadow = "10px 0px 0px green";
-                n=3;
-                break;
-            }
-        case 3 :
-            {
-                k.style.textShadow = "10px 0px 0px yellow";
-                n=0;
-                break;
-            }
-    }
 }

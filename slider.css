@@ -10,20 +10,41 @@ body
     background-color: rgba(241, 142, 28, 0.774);
     text-align: center;
 }
-#content{
+.content{
     text-align: center;
-    font-size: 70px;
+    font-size: 50px;
     font-family: fantasy;
-    color: white;
-    text-shadow: 10px 0px 0px grey;
+    color: rgba(65, 53, 53, 0.623);
+    animation:changeColor 2s ease-out ;
+}
+@keyframes changeColor
+{
+    0%
+    {
+        text-shadow: 5px 0px 0px rgb(255, 255, 255);   
+    }
+    50%
+    {
+        text-shadow: 0px 5px 0px rgb(37, 67, 133);
+    }
+    100%
+    {
+        text-shadow: 0px -5px 0px rgb(100, 149, 255);
+    }
 }
 .slider{
-    display: inline-block;
-    min-height: 500px;
-    min-width: 400px;
-    background-color: blue;
     position: relative;
-    box-shadow:  0px -10px 10px grey, 10px 0px 10px grey;
+    display: inline-block;
+    height: 400px;
+    width: 300px;
+    box-shadow: 10px 10px 10px rgba(141, 141, 141, 0.698);
+    transition: all 0.5s ease;
+}
+.slider:hover
+{
+    height: 450px;
+    width: 350px;
+    transform: rotate(-10deg);
 }
 .pages{
     position: absolute;
@@ -32,26 +53,35 @@ body
     transform-style: preserve-3d;
     transform-origin: left;
     box-shadow: 1px 1px 5px grey;
-    padding: 10px;
     background-color: rgba(0, 0, 0, 0.452);
     color: white;
+    transition: transform 1s ease;
+}
+.topic
+{
+    position: absolute;
+    border: 1px solid black;
+    left:0;
+    height: 100%;
+    width: 100%;
 }
 .right,.left{
     position: absolute;
-    height: 40px;
+    height: 100%;
     width: 40px;
-    right: -100px;
-    bottom: 50%;
-    color: white;
-    font-size: xx-large;
-    font-weight: 900;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
-.left{
-    left:-100px;
+.right
+{
+    z-index: 1;
+    right:0px;
 }
 .right:hover,.left:hover{
-    color: rgba(30, 62, 167, 0.103);
     cursor: pointer;
-    text-shadow: 0px 1px 10px rgba(119, 119, 119, 0.226);
+}
+.right:hover{
+    box-shadow:inset -10px 0px 10px rgba(73, 48, 33, 0.733);
+}
+.left:hover{
+    box-shadow:inset 10px 0px 10px rgba(73, 48, 33, 0.733);
 }
